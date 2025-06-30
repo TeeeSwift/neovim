@@ -45,6 +45,20 @@ keymap.set("n", "<leader>f", function()
   vim.lsp.buf.format()
 end)
 
+vim.api.nvim_create_user_command(
+  'ConformFormat', -- The name of your command (e.g., you'll type :ConformFormat)
+  function()
+    -- This is the function that gets executed when the command is run
+    require('conform').format()
+  end,
+  {
+    -- Options for the command:
+    desc = 'Format current buffer with Conform', -- Description shown in the command picker (e.g., when you type :Conform)
+    nargs = 0,                                   -- This command takes no arguments
+    -- buffer = true,                            -- Uncomment this line if you want the command to be buffer-local
+  }
+)
+
 -- replace word currently on
 vim.keymap.set("n", "<leader>sc", function()
   vim.api.nvim_buf_set_mark(0, "O", vim.fn.line("."), vim.fn.col("."), {}) -- Set global mark 'O'

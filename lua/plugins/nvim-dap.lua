@@ -10,6 +10,8 @@ return {
   },
   config = function()
     local dap = require("dap")
+    local js_debug_path = vim.fn.getenv('VSCODE_JS_DEBUG_DIR') .. 'lib/node_modules/js-debug/dist/src/dapDebugServer.js'
+
     dap.adapters["pwa-node"] = {
       type = "server",
       host = "localhost",
@@ -17,7 +19,7 @@ return {
       executable = {
         command = "node",
         -- 💀 Make sure to update this path to point to your installation
-        args = { "/Users/taylor/.local/share/nvim/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js", "${port}" },
+        args = { js_debug_path, "${port}" },
       }
     }
 
@@ -38,9 +40,9 @@ return {
     dap.listeners.before.launch["dap-view-config"] = function()
       dv.open()
     end
-    -- dap.listeners.before.event_terminated["dap-view-config"] = function()
-    --   dv.close()
-    -- end
+    dap.listeners.before.event_terminated["dap-view-config"] = function()
+      dv.close()
+    end
     dap.listeners.before.event_exited["dap-view-config"] = function()
       dv.close()
     end

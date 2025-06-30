@@ -1,9 +1,17 @@
 return {
   {
     "shaunsingh/nord.nvim",
+    enabled = false,
     init = function()
       require('nord').set()
     end
+  },
+  {
+    "Mofiqul/dracula.nvim",
+    config = function()
+      vim.cmd.colorscheme('dracula')
+    end
+
   },
   { "tpope/vim-fugitive",         lazy = false },
   {

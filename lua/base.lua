@@ -70,5 +70,4 @@ vim.cmd [[
 
 
 -- environment stuff
-
-vim.g.python3_host_prog = vim.fn.expand('~/.venv/nvim/bin/python3')
+vim.g.python3_host_prog = vim.fn.getenv('PYTHON_FOR_NVIM') .. '/bin/python3'
