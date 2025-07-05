@@ -59,14 +59,6 @@ vim.api.nvim_create_user_command(
   }
 )
 
--- replace word currently on
-vim.keymap.set("n", "<leader>sc", function()
-  vim.api.nvim_buf_set_mark(0, "O", vim.fn.line("."), vim.fn.col("."), {}) -- Set global mark 'O'
-  vim.api.nvim_command("edit ~/Documents/notes/scratch.md")                -- Open the scratch.md buffer
-end, { noremap = true, silent = true })
-
-
-
 -- Function to toggle the quickfix window
 function ToggleQuickfix()
   local quickfix_open = vim.fn.getqflist({ winid = 0 }).winid > 0
