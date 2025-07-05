@@ -2,19 +2,9 @@ return {
   "echaya/neowiki.nvim",
   config = function()
     local neowiki = require 'neowiki'
-    vim.api.nvim_create_user_command(
-      'OpenWiki', -- The name of your command (e.g., you'll type :ConformFormat)
-      function()
-        -- This is the function that gets executed when the command is run
-        neowiki.open_wiki_new_tab()
-      end,
-      {
-        -- Options for the command:
-        desc = 'Open neowiki', -- Description shown in the command picker (e.g., when you type :Conform)
-        nargs = 0,             -- This command takes no arguments
-        -- buffer = true,                            -- Uncomment this line if you want the command to be buffer-local
-      }
-    )
+    vim.keymap.set("n", "<leader>zk", function()
+      neowiki.open_wiki_floating()
+    end, { desc = "Open Work Wiki" })
 
     neowiki.setup({
       wiki_dirs = {
