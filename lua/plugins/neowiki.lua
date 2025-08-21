@@ -19,8 +19,10 @@ return {
 
     neowiki.setup({
       wiki_dirs = {
-        { name = "spp", path = "~/Documents/wiki/spp" },
-        { name = "e1",  path = "~/Documents/wiki/e1" },
+        { name = "e1",      path = "~/Documents/wiki/e1" },
+        { name = "spp",     path = "~/Documents/wiki/spp" },
+        { name = "chiman",  path = "~/Documents/wiki/chiman" },
+        { name = "updates", path = "~/Documents/wiki/weekly" },
       },
       keymaps = {
         toggle_task = "<C-k>",
