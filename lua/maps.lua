@@ -2,7 +2,6 @@ local keymap = vim.keymap
 
 vim.g.mapleader = " "
 keymap.set('n', '<leader>w', ":w<CR>")
-keymap.set('n', '<leader>q<CR>', ":q<CR>")
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 -- Screen movement
@@ -28,17 +27,13 @@ keymap.set('v', "J", ":m '>+1<CR>gv=gv")
 keymap.set('v', "K", ":m '>-2<CR>gv=gv")
 keymap.set('n', 'k', [[(v:count > 1 ? "m'" . v:count : "g") . 'k']], { expr = true })
 keymap.set('n', 'j', [[(v:count > 1 ? "m'" . v:count : "g") . 'j']], { expr = true })
-
-
+keymap.set('n', "m", "%")
 
 keymap.set('n', "J", "mzJ`z")
 keymap.set('n', "<C-d>", "<C-d>zz")
 keymap.set('n', "<C-u>", "<C-u>zz")
 keymap.set('n', "n", "nzzzv")
 keymap.set('n', "N", "Nzzzv")
-
-keymap.set('n', "]b", ":bnext<CR>");
-keymap.set('n', "[b", ":bprev<CR>");
 
 -- format
 keymap.set("n", "<leader>f", function()
